@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: reviews
+  description: Reviews Service
+  tags:
+    - java
+  links:
+    - url: https://devspaces.apps.apps.cluster-l9nz6.dynamic.redhatworkshops.io/?storageType=per-workspace#https://github.com/contract-first-idp-qa/bookinfo-reviews-service
+      title: OpenShift Dev Spaces
+      icon: web
+    - url: https://hawtio-online-hawtio-operator.apps.apps.cluster-l9nz6.dynamic.redhatworkshops.io/online/discover
+      title: HawtIO
+      icon: web
+  annotations:
+    github.com/project-slug: contract-first-idp-qa/bookinfo-reviews-service
+    backstage.io/kubernetes-id: reviews
+    backstage.io/kubernetes-label-selector: system=bookinfo
+    janus-idp.io/tekton : reviews-service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:default/backstage-admins
+  system: system:default/bookinfo
+  
+  providesApis: 
+    - reviews
+  
+  
+  consumesApis:
+    - ratings
+  
